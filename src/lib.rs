@@ -1,3 +1,20 @@
+//! Decimal representation of the single rational number whose value is
+//! mathematically equal to the input float.
+//!
+//! Note that this is almost never an appropriate way to print user-facing
+//! values. For that, use the [ryu] crate instead.
+//!
+//! [ryu]: https://github.com/dtolnay/ryu
+//!
+//! # Example
+//!
+//! ```
+//! fn main() {
+//!     // 0.1000000000000000055511151231257827021181583404541015625
+//!     println!("{}", precise::to_string(0.1));
+//! }
+//! ```
+
 use num_bigint::BigUint;
 use num_traits::Pow;
 
