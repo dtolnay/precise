@@ -1,0 +1,9 @@
+[package]
+name = "precise"
+version = "0.0.0"
+authors = ["David Tolnay <dtolnay@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+num-bigint = "0.2"
+num-traits = "0.2"
