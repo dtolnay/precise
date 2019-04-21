@@ -15,7 +15,7 @@ For that, use the [ryu] crate instead.*
 
 ```toml
 [dependencies]
-precise = "0.0"
+precise = "0.1"
 ```
 
 ## Example
