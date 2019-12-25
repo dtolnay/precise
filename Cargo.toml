@@ -9,6 +9,9 @@ repository = "https://github.com/dtolnay/precise"
 documentation = "https://docs.rs/precise"
 readme = "README.md"
 
+[badges]
+travis-ci = { repository = "dtolnay/precise" }
+
 [dependencies]
 num-bigint = "0.2"
 num-traits = "0.2"
