@@ -1,7 +1,7 @@
 Precise float to string
 =======================
 
-[![Build Status](https://api.travis-ci.com/dtolnay/precise.svg?branch=master)](https://travis-ci.com/dtolnay/precise)
+[![Build Status](https://img.shields.io/github/workflow/status/dtolnay/precise/CI/master)](https://github.com/dtolnay/precise/actions?query=branch%3Amaster)
 [![Latest Version](https://img.shields.io/crates/v/precise.svg)](https://crates.io/crates/precise)
 [![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/precise)
 
