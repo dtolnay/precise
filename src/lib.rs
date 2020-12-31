@@ -23,6 +23,8 @@
 //! }
 //! ```
 
+#![allow(clippy::needless_doctest_main)]
+
 use num_bigint::BigUint;
 use num_traits::Pow;
 
