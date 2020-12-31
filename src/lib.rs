@@ -23,7 +23,12 @@
 //! }
 //! ```
 
-#![allow(clippy::needless_doctest_main)]
+#![allow(
+    clippy::must_use_candidate,
+    clippy::needless_doctest_main,
+    clippy::redundant_else,
+    clippy::unseparated_literal_suffix
+)]
 
 use num_bigint::BigUint;
 use num_traits::Pow;
