@@ -11,7 +11,7 @@ documentation = "https://docs.rs/precise"
 readme = "README.md"
 
 [dependencies]
-num-bigint = "0.2"
+num-bigint = "0.4"
 num-traits = "0.2"
 
 [package.metadata.docs.rs]
