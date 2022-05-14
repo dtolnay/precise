@@ -86,8 +86,7 @@ fn f32_to_precise_string(n: f32) -> String {
     let leading_zeros = "0".repeat(more_zeros);
     repr = leading_zeros + &repr;
 
-    let point = repr.len() - 150;
-    repr = format!("{}.{}", &repr[..point], &repr[point..]);
+    repr.insert(repr.len() - 150, '.');
     repr.truncate(repr.trim_end_matches('0').len());
     if repr.ends_with('.') {
         repr.push('0');
@@ -131,8 +130,7 @@ fn f64_to_precise_string(n: f64) -> String {
     let leading_zeros = "0".repeat(more_zeros);
     repr = leading_zeros + &repr;
 
-    let point = repr.len() - 1075;
-    repr = format!("{}.{}", &repr[..point], &repr[point..]);
+    repr.insert(repr.len() - 1075, '.');
     repr.truncate(repr.trim_end_matches('0').len());
     if repr.ends_with('.') {
         repr.push('0');
