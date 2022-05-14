@@ -33,7 +33,23 @@
 use num_bigint::BigUint;
 use num_traits::Pow;
 
-pub fn to_string(n: f64) -> String {
+pub fn to_string(n: impl traits::Float) -> String {
+    traits::Float::to_precise_string(n)
+}
+
+mod traits {
+    pub trait Float: Sized {
+        fn to_precise_string(n: Self) -> String;
+    }
+
+    impl Float for f64 {
+        fn to_precise_string(n: Self) -> String {
+            crate::f64_to_precise_string(n)
+        }
+    }
+}
+
+fn f64_to_precise_string(n: f64) -> String {
     if n.is_nan() {
         return "NaN".to_owned();
     }
