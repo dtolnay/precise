@@ -1,4 +1,6 @@
-use std::{f32, f64};
+use std::f32;
+#[cfg(not(miri))]
+use std::f64;
 
 macro_rules! tests {
     (
@@ -32,6 +34,7 @@ tests! {
     neg_inf_f32(f32::NEG_INFINITY) = "-inf";
 }
 
+#[cfg(not(miri))]
 tests! {
     _1_f64(1.0f64) = "1.0";
     _90_f64(90.0f64) = "90.0";
