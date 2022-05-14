@@ -42,11 +42,62 @@ mod traits {
         fn to_precise_string(n: Self) -> String;
     }
 
+    impl Float for f32 {
+        fn to_precise_string(n: Self) -> String {
+            crate::f32_to_precise_string(n)
+        }
+    }
+
     impl Float for f64 {
         fn to_precise_string(n: Self) -> String {
             crate::f64_to_precise_string(n)
         }
     }
+}
+
+fn f32_to_precise_string(n: f32) -> String {
+    if n.is_nan() {
+        return "NaN".to_owned();
+    }
+
+    if n.is_infinite() {
+        if n.is_sign_positive() {
+            return "inf".to_owned();
+        } else {
+            return "-inf".to_owned();
+        }
+    }
+
+    let bits = n.to_bits();
+    let is_negative = (bits & 0x8000_0000) != 0;
+    let biased_exponent = (bits & 0x7F80_0000) >> 23;
+    let significand = (bits & 0x007F_FFFF) + (1 << 23);
+
+    // value
+    //   = significand * 2^(biased_exponent - 150)
+    //   = significand * 2^biased_exponent * 5^150 / 10^150
+    let significand = BigUint::from(significand);
+    let two = BigUint::from(2u8);
+    let five = BigUint::from(5u8);
+    let numerator = significand * two.pow(biased_exponent) * five.pow(150u16);
+
+    let mut repr = numerator.to_string();
+    let more_zeros = 151usize.saturating_sub(repr.len());
+    let leading_zeros = "0".repeat(more_zeros);
+    repr = leading_zeros + &repr;
+
+    let point = repr.len() - 150;
+    repr = format!("{}.{}", &repr[..point], &repr[point..]);
+    repr = repr.trim_end_matches('0').to_owned();
+    if repr.ends_with('.') {
+        repr.push('0');
+    }
+
+    if is_negative {
+        repr.insert(0, '-');
+    }
+
+    repr
 }
 
 fn f64_to_precise_string(n: f64) -> String {
