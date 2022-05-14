@@ -88,7 +88,7 @@ fn f32_to_precise_string(n: f32) -> String {
 
     let point = repr.len() - 150;
     repr = format!("{}.{}", &repr[..point], &repr[point..]);
-    repr = repr.trim_end_matches('0').to_owned();
+    repr.truncate(repr.trim_end_matches('0').len());
     if repr.ends_with('.') {
         repr.push('0');
     }
@@ -133,7 +133,7 @@ fn f64_to_precise_string(n: f64) -> String {
 
     let point = repr.len() - 1075;
     repr = format!("{}.{}", &repr[..point], &repr[point..]);
-    repr = repr.trim_end_matches('0').to_owned();
+    repr.truncate(repr.trim_end_matches('0').len());
     if repr.ends_with('.') {
         repr.push('0');
     }
