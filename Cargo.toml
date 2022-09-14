@@ -8,7 +8,6 @@ documentation = "https://docs.rs/precise"
 edition = "2018"
 keywords = ["float"]
 license = "MIT OR Apache-2.0"
-readme = "README.md"
 repository = "https://github.com/dtolnay/precise"
 rust-version = "1.31"
 
