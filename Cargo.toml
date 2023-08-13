@@ -1,6 +1,6 @@
 [package]
 name = "precise"
-version = "0.1.8"
+version = "0.1.9"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 categories = ["value-formatting"]
 description = "Full precision decimal representation of f64"
