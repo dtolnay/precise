@@ -1,3 +1,7 @@
+#![allow(
+    clippy::incompatible_msrv, // https://github.com/rust-lang/rust-clippy/issues/12257
+)]
+
 use std::f32;
 #[cfg(not(miri))]
 use std::f64;
