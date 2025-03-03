@@ -23,7 +23,7 @@
 //! }
 //! ```
 
-#![doc(html_root_url = "https://docs.rs/precise/0.1.9")]
+#![doc(html_root_url = "https://docs.rs/precise/0.1.10")]
 #![allow(
     clippy::must_use_candidate,
     clippy::needless_doctest_main,
